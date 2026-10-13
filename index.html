@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Coquette Corner</title>
+    <style>
+        /* =========================================================
+           1. GENERAL PAGE STYLES & FONTS
+           ========================================================= */
+        body {
+            font-family: 'Comic Sans MS', 'Chalkboard SE', cursive, sans-serif;
+            background-color: #fff0f5; /* Soft pastel pink background */
+            color: #5c3a44;           /* Soft dark brownish-pink text */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Main container holding the site */
+        .website-container {
+            width: 100%;
+            max-width: 800px;
+            background-color: #ffffff;
+            border: 4px solid #f2accd;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(242, 172, 205, 0.4);
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        /* Header styling */
+        header {
+            text-align: center;
+            border-bottom: 2px dashed #f2accd;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .bow-decoration {
+            font-size: 40px;
+            margin: 0;
+        }
+
+        h1 {
+            color: #d87093;
+            margin: 10px 0 5px 0;
+            font-size: 32px;
+        }
+
+        .subtitle {
+            color: #c71585;
+            font-style: italic;
+            margin: 0;
+        }
+
+        /* =========================================================
+           2. NAVIGATION TABS STYLING
+           ========================================================= */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        /* Radio button trick to switch tabs without JavaScript! */
+        input[type="radio"] {
+            display: none;
+        }
+
+        /* Styling for the tab buttons */
+        .tab-label {
+            background-color: #ffe4e1;
+            color: #d87093;
+            padding: 10px 18px;
+            border: 2px solid #f2accd;
+            border-radius: 20px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-label:hover {
+            background-color: #ffd1dc;
+            transform: translateY(-2px);
+        }
+
+        /* Style when a tab is selected */
+        #tab1:checked ~ nav label[for="tab1"],
+        #tab2:checked ~ nav label[for="tab2"],
+        #tab3:checked ~ nav label[for="tab3"],
+        #tab4:checked ~ nav label[for="tab4"] {
+            background-color: #f2accd;
+            color: #white;
+            color: #ffffff;
+            border-color: #c71585;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* =========================================================
+           3. TAB CONTENT PANELS
+           ========================================================= */
+        .tab-content {
+            display: none; /* Hide all tabs by default */
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Show the active tab depending on which radio button is checked */
+        #tab1:checked ~ .content-container #content1,
+        #tab2:checked ~ .content-container #content2,
+        #tab3:checked ~ .content-container #content3,
+        #tab4:checked ~ .content-container #content4 {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Content Box styling */
+        .card {
+            background-color: #fff9fb;
+            border: 2px solid #ffdae9;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            color: #c71585;
+            border-bottom: 2px solid #ffdae9;
+            padding-bottom: 8px;
+            margin-top: 0;
+        }
+
+        ul {
+            list-style-type: '🎀 ';
+            padding-left: 25px;
+            line-height: 1.8;
+        }
+
+        /* =========================================================
+           4. DIGITAL GARDEN / IMAGE COLLAGE
+           ========================================================= */
+        .collage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .collage-item {
+            background-color: #ffffff;
+            padding: 10px;
+            border: 2px solid #ffdae9;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .collage-item img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .collage-item p {
+            margin: 8px 0 0 0;
+            font-size: 14px;
+            color: #d87093;
+            font-weight: bold;
+        }
+
+        /* Footer styling */
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #d87093;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="website-container">
+
+        <!-- Hidden Radio Inputs to handle tab switching -->
+        <input type="radio" id="tab1" name="tabs" checked>
+        <input type="radio" id="tab2" name="tabs">
+        <input type="radio" id="tab3" name="tabs">
+        <input type="radio" id="tab4" name="tabs">
+
+        <!-- Header -->
+        <header>
+            <div class="bow-decoration">🎀 💖 🎀</div>
+            <h1>Welcome to My Little Corner</h1>
+            <p class="subtitle">✨ soft, cute, and coquette ✨</p>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav>
+            <label for="tab1" class="tab-label">🎀 Welcome</label>
+            <label for="tab2" class="tab-label">🌸 About Me</label>
+            <label for="tab3" class="tab-label">🎨 My Hobbies</label>
+            <label for="tab4" class="tab-label">🌷 Digital Garden</label>
+        </nav>
+
+        <!-- Tab Contents -->
+        <div class="content-container">
+
+            <!-- TAB 1: WELCOME -->
+            <div id="content1" class="tab-content">
+                <div class="card">
+                    <h2>Welcome to my page! 💖</h2>
+                    <p>Hi there, lovely visitor! Welcome to my personal website. This is a sweet little cozy space I created to share my favorite things, hobbies, and aesthetic visuals.</p>
+                    <p>Feel free to click around the tabs above to learn more about me!</p>
+                </div>
+            </div>
+
+            <!-- TAB 2: ABOUT ME -->
+            <div id="content2" class="tab-content">
+                <div class="card">
+                    <h2>About Me 🌸</h2>
+                    <p>Here are a few fun facts to get to know me better:</p>
+                    <ul>
+                        <li><strong>Favorite Colors:</strong> Baby Pink, Pastel Lavender, and Soft Cream</li>
+                        <li><strong>Favorite Foods:</strong> Strawberries, Macarons, and Iced Matcha Lattes</li>
+                        <li><strong>Favorite Animals:</strong> Bunnies, Fluffy Kittens, and Deer</li>
+                        <li><strong>Current Vibe:</strong> Lace, bows, vintage tea cups, and sunny afternoons</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- TAB 3: MY HOBBIES -->
+            <div id="content3" class="tab-content">
+                <div class="card">
+                    <h2>My Hobbies 🎨</h2>
+                    <p>Here are some of the things I love doing in my free time:</p>
+                    <ul>
+                        <li><strong>🎵 Music:</strong> Listening to dream-pop, bedroom pop, and classical piano. Playing instruments or making cute playlists!</li>
+                        <li><strong>🎨 Art & Crafting:</strong> Sketching, watercolor painting, journaling, and making DIY room decor.</li>
+                        <li><strong>📖 Reading:</strong> Cozy fiction books and poetry with a warm cup of tea.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- TAB 4: DIGITAL GARDEN -->
+            <div id="content4" class="tab-content">
+                <div class="card">
+                    <h2>Digital Garden 🌷</h2>
+                    <p>A little visual collage of things that inspire me and represent my world!</p>
+                    
+                    <div class="collage-grid">
+                        <div class="collage-item">
+                            <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=300&auto=format&fit=crop" alt="Pink Roses">
+                            <p>Pink Blooms 🌹</p>
+                        </div>
+                        <div class="collage-item">
+                            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=300&auto=format&fit=crop" alt="Coffee and Cake">
+                            <p>Tea Time ☕</p>
+                        </div>
+                        <div class="collage-item">
+                            <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=300&auto=format&fit=crop" alt="Ribbons and Bows">
+                            <p>Pink Ribbons 🎀</p>
+                        </div>
+                        <div class="collage-item">
+                            <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=300&auto=format&fit=crop" alt="Soft Aesthetics">
+                            <p>Cozy Corner 💖</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Made with 💕 and bows • Thanks for visiting!</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
